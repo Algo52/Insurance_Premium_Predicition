@@ -11,8 +11,8 @@ def index():
     try:
         raise Exception("djhfgdsfgdfkdsfkjds")
     except Exception as e:
-        forcast=InsuranceException(e,sys)
-        logging.info(forcast.error_message)
+        insurance=InsuranceException(e,sys)
+        logging.info(insurance.error_message)
         logging.info("we are pasting logginf")
     return "starting mahine learning PROJECTING and completed ci/cd pipeline"
 
