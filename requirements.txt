@@ -6,3 +6,4 @@ matplotlib
 -e .
 PyYAML
 sklearn
+evidently

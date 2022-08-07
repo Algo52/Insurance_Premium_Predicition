@@ -5,11 +5,12 @@ from Insurance.entity.config_entity import DataValidationConfig
 from Insurance.entity.artifact_entity import DataIngestionArtifact,DataValidationArtifact
 import os,sys
 import pandas  as pd
-from evidently.model_profile import Profile
+from evidently.model_profile import Profile ## to check datdrift
 from evidently.model_profile.sections import DataDriftProfileSection
 from evidently.dashboard import Dashboard
 from evidently.dashboard.tabs import DataDriftTab
 import json
+
 
 
 class DataValidation:
@@ -70,7 +71,7 @@ class DataValidation:
 
     def get_and_save_data_drift_report(self):
         try:
-            profile = Profile(sections=[DataDriftProfileSection()])
+            profile = Profile(sections=[DataDriftProfileSection()])  #datadrift means checking statastics of data when new data is added
 
             train_df,test_df = self.get_train_and_test_df()
 
@@ -91,7 +92,7 @@ class DataValidation:
 
     def save_data_drift_report_page(self):
         try:
-            dashboard = Dashboard(tabs=[DataDriftTab()])
+            dashboard = Dashboard(tabs=[DataDriftTab()]) #It will get as html.page
             train_df,test_df = self.get_train_and_test_df()
             dashboard.calculate(train_df,test_df)
 
@@ -129,4 +130,4 @@ class DataValidation:
             return data_validation_artifact
 
         except Exception as e:
-            raise InsuranceException    (e,sys) from e
+            raise InsuranceException(e,sys) from e
