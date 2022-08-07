@@ -1,3 +1,4 @@
+## this file will difine the structure of dataset 
 columns:
   age : int
   sex : category
@@ -20,6 +21,7 @@ categorical_columns:
 target_column:
   - expenses
   
+## Becasue its a categorical dataset  Just to be Sure in Feature dataset will trainig
 domain_value:
   sex:
     - female

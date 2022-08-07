@@ -1,6 +1,6 @@
 from collections import namedtuple
 
-### Giving Configuration of all the pipeline OR giving structure 
+### Giving Configuration of all the pipeline OR giving structure for the pipeline means it needs all this entities to difine thier components   
 DataIngestionConfig=namedtuple("DataIngestionConfig",
 ["dataset_download_url","raw_data_dir","ingested_train_dir","ingested_test_dir"])
 

@@ -25,7 +25,7 @@ class Configuartion:
     def get_data_ingestion_config(self) ->DataIngestionConfig:
         try:
             
-            artifact_dir = self.training_pipeline_config.artifact_dir
+            artifact_dir = self.training_pipeline_config.artifact_dir #This is top level folder means root level in config.yaml file 
             data_ingestion_artifact_dir=os.path.join(
                 artifact_dir,
                 DATA_INGESTION_ARTIFACT_DIR,
@@ -65,14 +65,14 @@ class Configuartion:
 
     def get_data_validation_config(self) -> DataValidationConfig:
         try:
-            artifact_dir = self.training_pipeline_config.artifact_dir
+            artifact_dir = self.training_pipeline_config.artifact_dir #This is top level folder means root level
 
             data_validation_artifact_dir=os.path.join(
                 artifact_dir,
                 DATA_VALIDATION_ARTIFACT_DIR_NAME,
                 self.time_stamp
             )
-            data_validation_config = self.config_info[DATA_VALIDATION_CONFIG_KEY]
+            data_validation_config = self.config_info[DATA_VALIDATION_CONFIG_KEY] # i will get all info which therre in config.yaml file of datavalidation
 
 
             schema_file_path = os.path.join(ROOT_DIR,
