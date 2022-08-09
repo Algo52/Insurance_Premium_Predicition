@@ -98,7 +98,7 @@ class Configuartion:
         except Exception as e:
             raise InsuranceException(e,sys) from e
 
-    """def get_data_transformation_config(self) -> DataTransformationConfig:
+    def get_data_transformation_config(self) -> DataTransformationConfig:
         try:
             artifact_dir = self.training_pipeline_config.artifact_dir
 
@@ -142,7 +142,7 @@ class Configuartion:
             logging.info(f"Data transformation config: {data_transformation_config}")
             return data_transformation_config
         except Exception as e:
-            raise InsuranceException(e,sys) from e"""
+            raise InsuranceException(e,sys) from e  
 
     def get_model_trainer_config(self) -> ModelTrainerConfig:
         pass

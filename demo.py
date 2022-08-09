@@ -9,7 +9,7 @@ def main():
     try:
         pipeline=Pipeline()
         pipeline.run_pipeline()
-        #data_valaidation_config= Configuartion().get_data_validation_config()
+        #data_valaidation_config= Configuartion().get_data_transformation_config()
         #print(data_valaidation_config)
     except Exception as e:
         logging.error(f'{e}')
