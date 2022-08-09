@@ -142,7 +142,7 @@ class Configuartion:
             logging.info(f"Data transformation config: {data_transformation_config}")
             return data_transformation_config
         except Exception as e:
-            raise InsuranceException(e,sys) from e  
+            raise InsuranceException(e,sys) from e 
 
     def get_model_trainer_config(self) -> ModelTrainerConfig:
         pass
@@ -165,5 +165,5 @@ class Configuartion:
             logging.info(f"Training pipleine config: {training_pipeline_config}")
             return training_pipeline_config
         except Exception as e:
-            raise InsuranceException(e,sys) from e
+            raise ProjectException(e,sys) from e
 
