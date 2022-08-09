@@ -19,7 +19,7 @@ model_selection:
     class: RandomForestRegressor
     module: sklearn.ensemble
     params:
-      min_samples_leaf: 3
+      min_samples_leaf: 3 # more than 3 leaf than split otherwise no
     search_param_grid:
       min_samples_leaf:
       - 5
