@@ -190,14 +190,24 @@ class Configuartion:
             logging.info(f"Model Evaluation Config: {response}.")
             return response
         except Exception as e:
-            raise ProjectException(e,sys) from e
-
-
-    def get_model_evaluation_config(self) ->ModelEvaluationConfig:
-        pass
+            raise InsuranceException(e,sys) from e
 
     def get_model_pusher_config(self) -> ModelPusherConfig:
-        pass
+        try:
+            time_stamp = f"{datetime.now().strftime('%Y%m%d%H%M%S')}"
+            model_pusher_config_info = self.config_info[MODEL_PUSHER_CONFIG_KEY]
+
+            export_dir_path = os.path.join(ROOT_DIR, 
+                              model_pusher_config_info[MODEL_PUSHER_MODEL_EXPORT_DIR_KEY],
+                              time_stamp)
+
+            model_pusher_config = ModelPusherConfig(export_dir_path = export_dir_path) 
+            
+            logging.info(f"Model pusher config {model_pusher_config}")
+            return model_pusher_config
+
+        except Exception as e:
+            raise InsuranceException(e,sys) from e
 
     def get_training_pipeline_config(self) ->TrainingPipelineConfig:
         try:
@@ -211,5 +221,5 @@ class Configuartion:
             logging.info(f"Training pipleine config: {training_pipeline_config}")
             return training_pipeline_config
         except Exception as e:
-            raise ProjectException(e,sys) from e
+            raise InsuranceException(e,sys) from e
 
