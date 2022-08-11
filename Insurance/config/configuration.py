@@ -1,4 +1,3 @@
-from ast import In
 from Insurance.entity.config_entity import DataIngestionConfig, DataTransformationConfig,DataValidationConfig,   \
 ModelTrainerConfig,ModelEvaluationConfig,ModelPusherConfig,TrainingPipelineConfig
 from Insurance.util.util import read_yaml_file
@@ -6,6 +5,7 @@ from Insurance.logger import logging
 import sys,os
 from Insurance.constant import *
 from Insurance.exception import InsuranceException
+
 
 
 class Configuartion:

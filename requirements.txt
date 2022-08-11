@@ -5,6 +5,9 @@ numpy
 matplotlib
 -e .
 PyYAML
-sklearn
+ipykernel
 evidently
-dill
+sklearn
+dill # Like Pickle
+numpy
+

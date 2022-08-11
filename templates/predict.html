@@ -1,0 +1,122 @@
+{% extends 'header.html' %}
+
+{% block head %}
+
+
+<title>Insurance Premium Estimator</title>
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+
+
+        <form action="/predict" method="post">
+            <legend>Insurance Premium Prediction Form</legend>
+            <div class="mb-3">
+                <label class="form-label">Age : </label>
+                <input class="form-control" type="text" name="age" placeholder="Enter age"
+                    required />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Gender : </label>
+                <input type="radio" name="sex" value="male" required> Male
+                <input type="radio" name="sex" value="female"> Female
+                
+                   
+            </div>
+            <div class="mb-3">
+                <label class="form-label">BMI : </label>
+                <input class="form-control" type="text" name="bmi"
+                    placeholder="Enter Body mass Index" />
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Children : </label>
+                <input class="form-control" type="text" name="children" placeholder="Enter number of children"
+                    required />
+
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Smoker: </label>
+                <input type="radio" name="smoker" value="yes" required> yes
+                <input type="radio" name="smoker" value="no"> no
+                
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Region</label>
+                <select class="form-control" name="region" placeholder="Enter region"
+                    required>
+
+                    <option value="southwest">
+                        South West
+                    </option>
+                    <option value="southeast">
+                        South East
+                    </option>
+                    <option value="northeast">
+                        North East
+                    </option>
+                    <option value="northwest">
+                        North West
+                    </option>
+                    
+
+                </select>
+            </div>
+            <div class="mb-3">
+
+                <input class="btn btn-primary" type="submit" value="Predict Premium" required />
+            </div>
+
+        </form>
+    </div>
+
+    <div class="col-md-6 col-sm-12 col-xs-6 col-lg-6">
+        <div class="card">
+            <div class="card-header">
+              Health Insurance Premium
+            </div>
+            <div class="card-body">
+        {% if context['insurance_data'] is not none %}
+        <table class="table table-striped">
+            <caption>Insurance Premium Prediction </caption>
+            <tr>
+                <th>Input Feature</th>
+                <th>Feature Value</th>
+
+            </tr>
+            {% for column,value in context['insurance_data'].items() %}
+
+
+
+            <tr>
+                <td>{{column}}</td>
+                <td>{{value[0]}}</td>
+            </tr>
+
+            {% endfor %}
+            <tr>
+
+                <td>expenses </td>
+                <td>
+                    {{ context['expenses'] }}
+                </td>
+            </tr>
+        </table>
+
+        {% else %}
+       
+              <h5 class="card-title">Submit Form</h5>
+              <p class="card-text">Kindly provide necessary information to estimate Insurance premium</p>
+            
+         
+
+        {% endif %}
+        Go to <a href="/" class="btn btn-primary">Home</a>
+    </div>
+</div>
+    </div>
+
+    {% endblock %}
