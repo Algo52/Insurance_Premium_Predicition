@@ -1,13 +1,3 @@
-#loading transformed training and testing datset
-#reading model config file 
-#getting best model on training datset
-#evaludation models on both training & testing datset -->model object
-#loading preprocessing Object
-#custom model object by combining both preprocessing obj and model obj (means creating own class to predict)
-#saving custom model object
-#return model_trainer_artifact
-
-
 from Insurance.exception import InsuranceException
 import sys
 from Insurance.logger import logging
@@ -104,7 +94,6 @@ class ModelTrainer:
             insurance_model = InsuranceEstimatorModel(preprocessing_object=preprocessing_obj,trained_model_object=model_object)
             logging.info(f"Saving model at path: {trained_model_file_path}")
             save_object(file_path=trained_model_file_path,obj=insurance_model)
-        
 
 
             model_trainer_artifact=  ModelTrainerArtifact(is_trained=True,message="Model Trained successfully",
@@ -124,3 +113,13 @@ class ModelTrainer:
 
     def __del__(self):
         logging.info(f"{'>>' * 30}Model trainer log completed.{'<<' * 30} ")
+
+
+#loading transformed training and testing datset
+#reading model config file 
+#getting best model on training datset
+#evaludation models on both training & testing datset -->model object
+#loading preprocessing pbject
+#custom model object by combining both preprocessing obj and model obj
+#saving custom model object
+#return model_trainer_artifact

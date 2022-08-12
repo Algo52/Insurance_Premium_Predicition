@@ -1,4 +1,3 @@
-from cgi import test
 from sklearn import preprocessing
 from Insurance.exception import InsuranceException
 from Insurance.logger import logging
