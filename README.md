@@ -1,3 +1,6 @@
+# About
+       An insurance price depends on various features such as age, gender, body mass index (BMI), region, and other special factors like smoking to determine the price of the insurance. Traditionally most insurance companies employ actuaries to calculate the insurance premiums.As like in my project also Estimate/Predict the  premium amount by Age,Bmi,Gender,Children,Smoker,Region.
+
 - Insurance_Premium_Predicition_url = https://insurance-premium12.herokuapp.com/
 
 ## Start Machine Learning project.
