@@ -22,6 +22,7 @@ class DataIngestion:
 
     def download_housing_data(self,) -> str:
         try:
+            #raise Exception("heamdjsadhs")
             #extraction remote url to download dataset
             download_url = self.data_ingestion_config.dataset_download_url
 
